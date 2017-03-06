@@ -1,0 +1,3 @@
+This part contains mining of 354985 words from http://wordnik.com/words/ using web scrapping techique.
+
+Parsed detailed is stored in wordjson.txt.
