@@ -25,7 +25,7 @@ if __name__ == "__main__":
     ignoredWords = []
     wordlist = [line.rstrip('\n') for line in open('words.txt')]
     length = len(wordlist)
-    for i in range(50):
+    for i in range(length):
         word = wordlist[i]
         print "Parsing " + word + "(" + str(i+1) + "/" + str(length) + ") ........",
         try:
