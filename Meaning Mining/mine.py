@@ -20,12 +20,12 @@ def setElementInEmptyArray(array):
     return array
 
 if __name__ == "__main__":
-    output = open('wordjson0.txt', 'w')
+    output = open('wordjson50001.txt', 'w')
     wordjson = []
     ignoredWords = []
     wordlist = [line.rstrip('\n') for line in open('words.txt')]
     length = len(wordlist)
-    for i in range(length):
+    for i in range(50000,length):
         word = wordlist[i]
         print "Parsing " + word + "(" + str(i+1) + "/" + str(length) + ") ........",
         try:
@@ -160,7 +160,7 @@ if __name__ == "__main__":
             output.write(str(json.dumps({'mydictionary':wordjson}, indent = 4)))
             output.close()
             print "Writing to file Done!!"
-            output = open('wordjson'+i+'.txt', 'w')
+            output = open('wordjson'+str(i)+'.txt', 'w')
 
     output.write(str(json.dumps({'mydictionary':wordjson}, indent = 4)))
     output.close()
