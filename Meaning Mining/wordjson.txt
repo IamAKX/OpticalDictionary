@@ -1,0 +1,62 @@
+{
+    "mydictionary": [
+        {
+            "&c": [
+                {
+                    "defination": [
+                        "Alternative spelling of &amp;c.;, rare except in titles."
+                    ]
+                }, 
+                {
+                    "syllable": [
+                        "Not available"
+                    ]
+                }, 
+                {
+                    "etymologies": [
+                        "Not available"
+                    ]
+                }, 
+                {
+                    "example": [
+                        "LXX. \u2014 \u2018Now what can their two noddles be about?\u2019 cried my father ... &amp;c; .. ..", 
+                        "On the 12th November, 5 &amp; 6 Philip and Mary, 1558, a bill \"That no man shall print any book or ballad, &amp;c;., unless he be authorized thereunto by the king and queen's majesties licence, under the Great Seal of Englande,\" was read for the first time in the House of Lords, where it was read again", 
+                        "Southern bowers, &amp;c;, which my modesty would not allow me to suppose had any reference to the tall young surgeon.", 
+                        "This distinguished legacy, and the still more distinguished words in which it is bequeathed -- not my foreign secretary, chaplain, &amp;c;. but \"my friend, the Reverend Alexander Scott,\" -- must ever bear ample testimony of a regard, even at that period, which does Dr. Scott so much substantial honour.", 
+                        "By making gin, &amp;c;. as good if not better, we might in a few years, meet those foreign merchants in their own markets, and undersell them; which we certainly could do, by making our liquors good, and giving them the same age.", 
+                        "_Winner and Waster_, &amp;c;, ab. 1360, lately issued for the Roxburghe Club;", 
+                        "Those who do not volunteer and organize, to assemble at places of rendezvous and be formed into companies, &amp;c;, and elect their officers.", 
+                        "Authorize the Gov. to take possession of, &amp;c;, 54 56 64 65 66", 
+                        "Eggs $1 &amp;c;, war prices sure enough, but then we must live, and nothing is as good for the fatigues of a soldier's life as a hearty diet, nothing so good to keep off disease.", 
+                        "I hope to be able to give you ample satisfaction, in regards to my integrity, politics, &amp;c;, And would be pleased to ascertain the recommendations usually required."
+                    ]
+                }, 
+                {
+                    "synonym": [
+                        "Not available"
+                    ]
+                }, 
+                {
+                    "antonym": [
+                        "Not available"
+                    ]
+                }, 
+                {
+                    "hypernym": [
+                        "Not available"
+                    ]
+                }, 
+                {
+                    "samecontext": [
+                        "Not available"
+                    ]
+                }, 
+                {
+                    "rhyme": [
+                        "Not available"
+                    ]
+                }
+            ]
+        }
+    ]
+}
