@@ -5,6 +5,8 @@ import urllib2
 from bs4 import BeautifulSoup
 import re
 import json
+import sys
+from pymongo import MongoClient
 
 TAG_RE = re.compile(r'<[^>]+>')
 
@@ -20,12 +22,17 @@ def setElementInEmptyArray(array):
     return array
 
 if __name__ == "__main__":
-    output = open('wordjson50001.txt', 'w')
-    wordjson = []
-    ignoredWords = []
+
+	## Loading 3.5lac words
     wordlist = [line.rstrip('\n') for line in open('words.txt')]
     length = len(wordlist)
-    for i in range(50000,length):
+
+    ##Establishing MongoLab connection
+    connection = MongoClient("ds127730.mlab.com", 27730)
+    db = connection["dictionary"]
+    db.authenticate("iamakx", "akash123")
+
+    for i in range(length):
         word = wordlist[i]
         print "Parsing " + word + "(" + str(i+1) + "/" + str(length) + ") ........",
         try:
@@ -150,23 +157,13 @@ if __name__ == "__main__":
             dict.append({"hypernym":hypernym_array})
             dict.append({"samecontext":samecontext_array})
             dict.append({"rhyme":rhyme_array})
+            jsonobj = str(json.dumps({word:dict}))
+            result = db.words.insert_one(json.loads(jsonobj)).inserted_id
+            print " Done! (Word ID : "+str(result)+")"
 
-            wordjson.append({word:dict})
-            print " Done!"
-        except:
-            ignoredWords.append(word)
-            print " Ignored"
-        if(i % 50000 == 0 and i!=0):
-            output.write(str(json.dumps({'mydictionary':wordjson}, indent = 4)))
-            output.close()
-            print "Writing to file Done!!"
-            output = open('wordjson'+str(i)+'.txt', 'w')
-
-    output.write(str(json.dumps({'mydictionary':wordjson}, indent = 4)))
-    output.close()
-    print "Writing to file Done!!"
-
-    ignoredWordFile = open('ignored.txt', 'w')
-    for s in ignoredWords:
-        ignoredWordFile.write(s+"\n")
-    ignoredWordFile.close()
+        except Exception, e:
+            igWrds = {"ignored":word}
+            result = db.ignored.insert_one(igWrds).inserted_id
+            print " Ignored (Word ID : "+str(result)+")"
+        
+    print "All words saved!!"
