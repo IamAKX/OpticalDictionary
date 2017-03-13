@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import re
 import json
 import sys
+import time
 from pymongo import MongoClient
 
 TAG_RE = re.compile(r'<[^>]+>')
@@ -33,7 +34,10 @@ if __name__ == "__main__":
     db.authenticate("iamakx", "akash123")
 
     for i in range(length):
-        word = wordlist[i]
+    	if(i==100000 or i==200000 or i==300000):
+    		time.sleep(3600)
+    	
+    	word = wordlist[i]
         print "Parsing " + word + "(" + str(i+1) + "/" + str(length) + ") ........",
         try:
             html_content = urllib2.urlopen("http://wordnik.com/words/"+word)
