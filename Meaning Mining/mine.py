@@ -164,6 +164,6 @@ if __name__ == "__main__":
         except Exception, e:
             igWrds = {"ignored":word}
             result = db.ignored.insert_one(igWrds).inserted_id
-            print " Ignored (Word ID : "+str(result)+")"
+            print " Ignored (Word ID : "+str(result)+") Cause : "+str(e)
         
     print "All words saved!!"
