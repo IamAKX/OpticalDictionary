@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     for i in range(length):
     	if(i%50000 == 0):
-    		print 'Sleeping for 3 hours, index = '+i
+    		print 'Sleeping for 3 hours, index = '+str(i)
     		time.sleep(3600*3)
     		
     	word = wordlist[i]
