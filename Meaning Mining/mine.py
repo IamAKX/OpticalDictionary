@@ -32,11 +32,14 @@ if __name__ == "__main__":
     connection = MongoClient("ds127730.mlab.com", 27730)
     db = connection["dictionary"]
     db.authenticate("iamakx", "akash123")
+    lastEnteredIndex = 0;
+	
 
     for i in range(length):
-    	if(i==100000 or i==200000 or i==300000):
-    		time.sleep(3600)
-    	
+    	if(i%50000 == 0):
+    		print 'Sleeping for 3 hours, index = '+i
+    		time.sleep(3600*3)
+    		
     	word = wordlist[i]
         print "Parsing " + word + "(" + str(i+1) + "/" + str(length) + ") ........",
         try:
@@ -163,11 +166,13 @@ if __name__ == "__main__":
             dict.append({"rhyme":rhyme_array})
             jsonobj = str(json.dumps({word:dict}))
             result = db.words.insert_one(json.loads(jsonobj)).inserted_id
+            lastEnteredIndex = i
+			
             print " Done! (Word ID : "+str(result)+")"
 
         except Exception, e:
             igWrds = {"ignored":word}
             result = db.ignored.insert_one(igWrds).inserted_id
-            print " Ignored (Word ID : "+str(result)+") Cause : "+str(e)
+            print " Ignored (Word ID : "+str(result)+") Cause : "+str(e)+"  Last entered index = " + str(lastEnteredIndex)
         
     print "All words saved!!"
