@@ -35,7 +35,7 @@ if __name__ == "__main__":
     lastEnteredIndex = 0;
 	
 
-    for i in range(length):
+    for i in range(131597,length):
     	if(i%50000 == 0):
     		print 'Sleeping for 3 hours, index = '+str(i)
     		time.sleep(3600*3)
