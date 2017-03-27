@@ -25,18 +25,17 @@ def setElementInEmptyArray(array):
 if __name__ == "__main__":
 
 	## Loading 3.5lac words
-    wordlist = [line.rstrip('\n') for line in open('common.txt')]
+    wordlist = [line.rstrip('\n') for line in open('dictionary.txt')]
     length = len(wordlist)
 
     ##Establishing MongoLab connection
     connection = MongoClient("ds127730.mlab.com", 27730)
     db = connection["dictionary"]
     db.authenticate("iamakx", "akash123")
-    lastEnteredIndex = 0;
-	
+    lastEnteredIndex = 0
 
     for i in range(length):
-		word = wordlist[i] 
+		word = wordlist[i].strip() 
 		print "Parsing " + word + "(" + str(i+1) + "/" + str(length) + ") ........",
 		# if(i%50000 == 0):
 		# 	print 'Sleeping for 3 hours, index = '+str(i)
@@ -164,7 +163,7 @@ if __name__ == "__main__":
 			dict.append({"samecontext":samecontext_array})
 			dict.append({"rhyme":rhyme_array})
 			jsonobj = str(json.dumps({word:dict}))
-			result = db.common.insert_one(json.loads(jsonobj)).inserted_id
+			result = db.words.insert_one(json.loads(jsonobj)).inserted_id
 			lastEnteredIndex = i
 
 			print " Done! (Word ID : "+str(result)+")"
@@ -172,6 +171,9 @@ if __name__ == "__main__":
 			igWrds = {"ignored":word}
 			result = db.ignored.insert_one(igWrds).inserted_id
 			print " Ignored (Word ID : "+str(result)+") Cause : "+str(e)+"  Last entered index = " + str(lastEnteredIndex)
+			if "quota" in str(e).lower():
+				exit()
+    			
         
     print "All words saved!!"
     	
