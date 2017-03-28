@@ -35,7 +35,7 @@ if __name__ == "__main__":
     lastEnteredIndex = 0
 
     for i in range(length):
-		word = wordlist[i].strip() 
+		word = wordlist[i].strip().lower() 
 		print "Parsing " + word + "(" + str(i+1) + "/" + str(length) + ") ........",
 		# if(i%50000 == 0):
 		# 	print 'Sleeping for 3 hours, index = '+str(i)
