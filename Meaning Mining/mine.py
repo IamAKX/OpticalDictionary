@@ -34,7 +34,7 @@ if __name__ == "__main__":
     db.authenticate("iamakx", "akash123")
     lastEnteredIndex = 0
 
-    for i in range(length):
+    for i in range(71145,length):
 		word = wordlist[i].strip().lower() 
 		print "Parsing " + word + "(" + str(i+1) + "/" + str(length) + ") ........",
 		# if(i%50000 == 0):
@@ -163,7 +163,7 @@ if __name__ == "__main__":
 			dict.append({"samecontext":samecontext_array})
 			dict.append({"rhyme":rhyme_array})
 			jsonobj = str(json.dumps({word:dict}))
-			result = db.words.insert_one(json.loads(jsonobj)).inserted_id
+			result = db.wordss.insert_one(json.loads(jsonobj)).inserted_id
 			lastEnteredIndex = i
 
 			print " Done! (Word ID : "+str(result)+")"
