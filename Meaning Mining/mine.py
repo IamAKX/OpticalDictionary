@@ -34,7 +34,7 @@ if __name__ == "__main__":
     db.authenticate("iamakx", "akash123")
     lastEnteredIndex = 0
 
-    for i in range(97925,length):
+    for i in range(105256,length):
 		word = wordlist[i].strip().lower() 
 		print "Parsing " + word + "(" + str(i+1) + "/" + str(length) + ") ........",
 		# if(i%50000 == 0):
