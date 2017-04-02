@@ -163,7 +163,7 @@ if __name__ == "__main__":
 			dict.append({"samecontext":samecontext_array})
 			dict.append({"rhyme":rhyme_array})
 			jsonobj = str(json.dumps({word:dict}))
-			result = db.wordsss.insert_one(json.loads(jsonobj)).inserted_id
+			result = db.wordssss.insert_one(json.loads(jsonobj)).inserted_id
 			lastEnteredIndex = i
 
 			print " Done! (Word ID : "+str(result)+")"
