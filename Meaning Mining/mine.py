@@ -30,11 +30,11 @@ if __name__ == "__main__":
 
     ##Establishing MongoLab connection
     connection = MongoClient("ds127730.mlab.com", 27730)
-    db = connection["dictionary"]
+    db = connection["ocr"]
     db.authenticate("iamakx", "akash123")
     lastEnteredIndex = 0
 
-    for i in range(105256,length):
+    for i in range(length):
 		word = wordlist[i].strip().lower() 
 		print "Parsing " + word + "(" + str(i+1) + "/" + str(length) + ") ........",
 		# if(i%50000 == 0):
@@ -163,7 +163,7 @@ if __name__ == "__main__":
 			dict.append({"samecontext":samecontext_array})
 			dict.append({"rhyme":rhyme_array})
 			jsonobj = str(json.dumps({word:dict}))
-			result = db.wordssss.insert_one(json.loads(jsonobj)).inserted_id
+			result = db.words.insert_one(json.loads(jsonobj)).inserted_id
 			lastEnteredIndex = i
 
 			print " Done! (Word ID : "+str(result)+")"
