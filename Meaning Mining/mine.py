@@ -29,7 +29,7 @@ if __name__ == "__main__":
     length = len(wordlist)
 
     ##Establishing MongoLab connection
-    connection = MongoClient("ds127730.mlab.com", 27730)
+    connection = MongoClient("ds153710.mlab.com", 53710)
     db = connection["ocr"]
     db.authenticate("iamakx", "akash123")
     lastEnteredIndex = 0
@@ -163,7 +163,7 @@ if __name__ == "__main__":
 			dict.append({"samecontext":samecontext_array})
 			dict.append({"rhyme":rhyme_array})
 			jsonobj = str(json.dumps({word:dict}))
-			result = db.words.insert_one(json.loads(jsonobj)).inserted_id
+			result = db.word.insert_one(json.loads(jsonobj)).inserted_id
 			lastEnteredIndex = i
 
 			print " Done! (Word ID : "+str(result)+")"
